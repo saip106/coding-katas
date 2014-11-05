@@ -31,3 +31,13 @@ describe('when grouping string with just already grouped Xs', function () {
     });
 
 });
+
+describe('when grouping string with no Xs', function () {
+
+    it('should do no shifts to group', function () {
+        var input = '...........';
+        var result = grouping.minStepsToGroup(input);
+        expect(result).toBe(0);
+    });
+
+});
