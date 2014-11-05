@@ -1,0 +1,22 @@
+{
+  "name": "coding-katas",
+  "version": "1.0.0",
+  "description": "fun coding exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/jasmine-node --test-dir ./src --autotest --color --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saip106/coding-katas.git"
+  },
+  "author": "Sai Gudigundla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saip106/coding-katas/issues"
+  },
+  "homepage": "https://github.com/saip106/coding-katas",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
