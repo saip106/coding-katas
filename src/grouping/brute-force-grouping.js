@@ -2,7 +2,6 @@
 
 //find the steps required to group all x's around each x
 //whichever yields the min steps is the answer
-
 function minStepsToGroup (input) {
     var array = input.split('');
     var totalJumps = [];
@@ -15,7 +14,7 @@ function minStepsToGroup (input) {
 
     var min = totalJumps.length;
     for (var i = 0; i < totalJumps.length; i++) {
-        if (totalJumps[i]) {
+        if (typeof totalJumps[i] !== 'undefined') {
             if (totalJumps[i] < min) {
                 min = totalJumps[i]
             }
