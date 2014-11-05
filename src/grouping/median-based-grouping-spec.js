@@ -1,15 +1,15 @@
 'user strict';
 
-var grouping = require('./brute-force-grouping');
+var grouping = require('./median-based-grouping');
 
-describe('Brute Force Grouping', function () {
+describe('Median Based Grouping', function () {
 
 
     describe('when grouping Xs', function () {
 
         it('should bring them next to each other', function () {
             var input = '....x..xx...x..';
-            var result = grouping.minStepsToGroup(input);
+            var result = grouping.findMinShifts(input);
             expect(result).toBe(5);
         });
 
@@ -19,7 +19,7 @@ describe('Brute Force Grouping', function () {
 
         it('should do no shifts to group', function () {
             var input = '....x.......';
-            var result = grouping.minStepsToGroup(input);
+            var result = grouping.findMinShifts(input);
             expect(result).toBe(0);
         });
 
@@ -29,7 +29,7 @@ describe('Brute Force Grouping', function () {
 
         it('should do no shifts to group', function () {
             var input = '....xxxx.......';
-            var result = grouping.minStepsToGroup(input);
+            var result = grouping.findMinShifts(input);
             expect(result).toBe(0);
         });
 
@@ -39,7 +39,7 @@ describe('Brute Force Grouping', function () {
 
         it('should do no shifts to group', function () {
             var input = '...........';
-            var result = grouping.minStepsToGroup(input);
+            var result = grouping.findMinShifts(input);
             expect(result).toBe(0);
         });
 
