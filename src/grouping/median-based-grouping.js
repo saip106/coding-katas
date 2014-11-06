@@ -1,5 +1,7 @@
 'user strict';
 
+//Unlike brute force algorithm this one first finds the median element
+//and groups everything around it
 function findMinShifts (input) {
     //find median
     var array = input.split('');
