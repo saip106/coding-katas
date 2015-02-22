@@ -12,6 +12,10 @@ MinHeap.prototype.count = function () {
     return this.data.length;
 };
 
+MinHeap.prototype.isEmpty = function () {
+    return this.data.length === 0;
+};
+
 MinHeap.prototype.add = function (linkedList) {
     this.data.push(linkedList);
     makeHeapValidOnAdd(this.data);
@@ -30,7 +34,11 @@ MinHeap.prototype.pop = function () {
         return null;
     }
     var rootLinkedList = this.data[0];
-    var poppedElement = rootLinkedList.pop();
+    var poppedElement;
+    if (rootLinkedList.length === 0) {
+        return null;
+    }
+    poppedElement = rootLinkedList.pop();
     makeHeapValidOnPop(this.data);
     return poppedElement.value;
 };
@@ -105,23 +113,30 @@ function internalMakeHeapValidOnAdd(index, data) {
 }
 
 function makeHeapValidOnPop(data) {
-    if (data.length <= 1) {
-        return;
-    }
     internalMakeHeapValidOnPop(0, data);
 }
 
 function internalMakeHeapValidOnPop(index, data) {
-    var current = data[index].head;
+    if (data.length === 0) {
+        return;
+    }
+    var current = data[index];
     var leftChild = getLeftChild(index, data);
     var rightChild = getRightChild(index, data);
 
     if (leftChild !== null || rightChild !== null) {
         var minChild = findMin(leftChild, rightChild);
-        var temp = data[minChild.index];
-        data[minChild.index] = data[index];
-        data[index] = temp;
-        internalMakeHeapValidOnPop(minChild.index, data);
+        if (current.length === 0 || minChild.element.value < current.head.value) {
+            var temp = data[minChild.index];
+            data[minChild.index] = current.length === 0 ? null: current;
+            data[index] = temp;
+            internalMakeHeapValidOnPop(minChild.index, data);
+        }
+    } else {
+        if (current === null || current.length === 0) {
+            data.splice(index, 1);
+            internalMakeHeapValidOnPop(0, data);
+        }
     }
 }
 

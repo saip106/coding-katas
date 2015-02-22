@@ -1,16 +1,17 @@
 'use strict';
 
+var MinHeap = require('./min-heap');
+
 function merge(array) {
-    var result = [];
+    var result = [], minHeap = new MinHeap();
     for (var i = 0; i < array.length; i++) {
         var linkedList = array[i];
-        var head = linkedList.pop();
-        while(head) {
-            console.log(head);
-            result.push(head.value);
-            head = linkedList.pop();
-        }
+        minHeap.add(linkedList);
+    }
 
+    while(!minHeap.isEmpty()) {
+        var poppedValue = minHeap.pop();
+        result.push(poppedValue);
     }
     return result;
 }

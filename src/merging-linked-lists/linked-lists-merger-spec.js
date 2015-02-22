@@ -3,6 +3,21 @@
 var merger = require('./linked-lists-merger');
 var LinkedList = require('./linked-list');
 
+describe('when merging one linked list with one element', function () {
+
+    it('should return a sorted array', function () {
+        var linkedList = new LinkedList();
+        linkedList.add(1);
+
+        var input = [];
+        input.push(linkedList);
+        var result = merger.merge(input);
+        expect(result.length).toBe(1);
+        expect(result[0]).toBe(1);
+    });
+
+});
+
 describe('when merging one sorted linked list', function () {
 
     it('should return a sorted array', function () {
@@ -22,7 +37,7 @@ describe('when merging one sorted linked list', function () {
 
 });
 
-xdescribe('when merging multiple sorted linked lists', function () {
+describe('when merging multiple sorted linked lists', function () {
 
     it('should return a sorted array', function () {
         var linkedList1 = new LinkedList();
