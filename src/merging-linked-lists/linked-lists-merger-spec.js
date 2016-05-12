@@ -1,7 +1,7 @@
 'use strict';
 
 var merger = require('./linked-lists-merger');
-var LinkedList = require('./linked-list');
+var LinkedList = require('./../data-structures/linked-list');
 
 describe('when merging one linked list with one element', function () {
 

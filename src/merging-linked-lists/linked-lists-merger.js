@@ -1,6 +1,6 @@
 'use strict';
 
-var MinHeap = require('./min-heap');
+var MinHeap = require('./../data-structures/min-heap');
 
 function merge(array) {
     var result = [], minHeap = new MinHeap();
